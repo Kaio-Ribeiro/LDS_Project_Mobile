@@ -61,6 +61,9 @@ export default function Create_Clients() {
                 }
             })
 
+            const dataEmail = {password: response.data.password, email}
+            await api.post('/send-email', dataEmail)
+
             alert("Cliente cadastrado com sucesso.")
             
             navigation.navigate('Home_Salesman')

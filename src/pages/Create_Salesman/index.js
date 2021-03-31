@@ -50,6 +50,9 @@ export default function Create_Salesman() {
                 }
             })
 
+            const dataEmail = {password: response.data.password, email}
+            await api.post('/send-email', dataEmail)
+
             alert("Vendedor cadastrado com sucesso.")
             
             navigation.navigate('Salesman_Listing')
