@@ -21,7 +21,7 @@ export default function Create_Clients() {
     const [uf, setUf] = useState('');
     const [city, setCity] = useState('');
     const [box_number, setBox_number] = useState('');
-    const [internet_plan_id,setInternetPlanId] = useState('')
+    const [internet_plan_id,setInternetPlanId] = useState(null)
     const [internetPlans,setInternetPlans] = useState([])
 
     const navigation = useNavigation() 
@@ -146,7 +146,7 @@ export default function Create_Clients() {
                                 defaultValue={internet_plan_id}
                                 style={styles.picker}
                             >
-                                <Picker.Item label="Escolha um plano" value="none" />
+                                <Picker.Item label="Escolha um plano" value={null} />
                                 {internetPlans.map(internetPlan => (
                                     <Picker.Item key={internetPlan.id} label={internetPlan.speed} value={internetPlan.id} />
                                 ))}

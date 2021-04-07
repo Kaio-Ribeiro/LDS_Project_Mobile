@@ -43,23 +43,6 @@ export default function Detail_Clients() {
         }
     }
 
-    async function handleDeleteClient() {
-        try {
-            await api.delete(`client/${client.id}`, {
-                headers: {
-                    Authorization: client.salesman_id,
-                }
-            })
-
-            alert("Cliente excluído com sucesso.")
-            
-            navigation.navigate('Clients_Listing')
-
-        } catch (err) {
-            alert(err)
-        }
-    }
-
     return (
         <View style={styles.container}>
             <View style={styles.header}>

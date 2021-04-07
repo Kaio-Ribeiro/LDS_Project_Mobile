@@ -31,9 +31,10 @@ export default function Login() {
 
             }else if(picker === '/sessionSalesman') {
                 navigation.navigate('Home_Salesman')
+
+            }else if(picker === '/sessionClient'){
+                navigation.navigate('Home_Client')
             }
-            
-            
 
         } catch (err) {
             alert("'Falha no login, tente novamente.")
@@ -78,7 +79,7 @@ export default function Login() {
                     <Picker.Item label="Selecione um usuário" value="none" />
                     <Picker.Item label="Administrador" value="/sessionAdmin" />
                     <Picker.Item label="Vendedor" value="/sessionSalesman" />
-                    <Picker.Item label="Cliente" value="client" />
+                    <Picker.Item label="Cliente" value="/sessionClient" />
                 </Picker> 
             </View>
 
