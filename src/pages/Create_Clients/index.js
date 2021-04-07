@@ -66,7 +66,7 @@ export default function Create_Clients() {
 
             alert("Cliente cadastrado com sucesso.")
             
-            navigation.navigate('Home_Salesman')
+            navigation.navigate('Contract_Client')
 
         } catch (err) {
             alert("Falha no cadastro, tente novamente.")
@@ -200,7 +200,7 @@ export default function Create_Clients() {
                         style={styles.action}
                         onPress={handleCreateClients}
                     >
-                        <Text style={styles.actionText}>Cadastrar</Text>
+                        <Text style={styles.actionText}>Continuar</Text>
                     </TouchableOpacity>
 
                 </View>

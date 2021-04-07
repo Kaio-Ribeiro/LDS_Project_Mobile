@@ -22,7 +22,7 @@ export default function Login() {
 
         try {
             const response = await api.post(picker, data)
-            console.log(response.data)
+            console.log(picker)
 
             await AsyncStorage.setItem('userID', JSON.stringify(response.data));
 
@@ -37,7 +37,7 @@ export default function Login() {
             }
 
         } catch (err) {
-            alert("'Falha no login, tente novamente.")
+            alert("Erro no login, tente novamente")
         }
     }
 

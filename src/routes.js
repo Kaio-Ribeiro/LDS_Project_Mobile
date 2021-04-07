@@ -16,6 +16,7 @@ import Home_Admin from './pages/Home_Admin'
 import Home_Salesman from './pages/Home_Salesman'
 import Home_Client from './pages/Home_Client'
 import Clients_Listing from './pages/Clients_Listing'
+import Contract_Client from './pages/Contract_Client'
 import Create_Clients from './pages/Create_Clients'
 
 
@@ -35,6 +36,7 @@ export default function Routes() {
                 <AppStack.Screen name="Update_Salesman" component={Update_Salesman} />
                 <AppStack.Screen name="Clients_Listing" component={Clients_Listing} />
                 <AppStack.Screen name="Create_Clients" component={Create_Clients} />
+                <AppStack.Screen name="Contract_Client" component={Contract_Client} />
                 <AppStack.Screen name="Update_Client" component={Update_Client} />
             </AppStack.Navigator>
         </NavigationContainer>
