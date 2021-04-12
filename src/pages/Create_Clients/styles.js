@@ -113,4 +113,28 @@ export default StyleSheet.create({
         height: 20,
     },
 
+    uploadedImagesContainer: {
+        flexDirection: 'row',
+
+    },
+
+    uploadedImage: {
+        width: 64,
+        height: 64,
+        borderRadius: 20,
+        marginBottom: 32,
+        marginRight: 8
+    },
+
+    imageInput: {
+        marginTop: 8,
+        backgroundColor: 'rgba(255, 255, 255, 0.5)',
+        borderStyle: 'dashed',
+        borderColor: '#96D2F0',
+        borderWidth: 1.4,
+        borderRadius: 20,
+        height: 56,
+        justifyContent: 'center'
+    }
+
 })

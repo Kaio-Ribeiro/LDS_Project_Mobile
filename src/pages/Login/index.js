@@ -22,7 +22,6 @@ export default function Login() {
 
         try {
             const response = await api.post(picker, data)
-            console.log(picker)
 
             await AsyncStorage.setItem('userID', JSON.stringify(response.data));
 

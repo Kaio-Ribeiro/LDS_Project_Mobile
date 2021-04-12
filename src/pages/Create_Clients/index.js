@@ -5,6 +5,8 @@ import { Dimensions, View, ScrollView, KeyboardAvoidingView, Image, Text, TextIn
 import AsyncStorage from  '@react-native-community/async-storage';
 import {Picker} from '@react-native-picker/picker'
 import logoImg from '../../assets/logo.png'
+import * as ImagePicker from 'expo-image-picker'
+import * as Permissions from 'expo-permissions';
 import api from '../../services/api'
 import styles from './styles'
 
@@ -23,6 +25,7 @@ export default function Create_Clients() {
     const [box_number, setBox_number] = useState('');
     const [internet_plan_id,setInternetPlanId] = useState(null)
     const [internetPlans,setInternetPlans] = useState([])
+    const [images, setImages] = useState([])
 
     const navigation = useNavigation() 
 
@@ -48,8 +51,51 @@ export default function Create_Clients() {
 
     const scrollEnabled = this.state.screenHeight > height
 
+    async function handleSelectImages() {
+        const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync()
+         console.log(status) 
+
+        if (status !== 'granted') {
+            alert("Precisamos de acesso ás suas fotos...")
+        }
+
+        const result = await ImagePicker.launchImageLibraryAsync({
+            allowsEditing: true,
+            quality: 1,
+            mediaTypes: ImagePicker.MediaTypeOptions.All,
+        }) 
+
+        if (result.cancelled) {
+            return
+        }
+
+        const {uri} = result
+
+        setImages([...images, uri])
+    }
+
     async function handleCreateClients() {
-        const data = {name, email, RG, CPF, city, uf, district, street, number, box_number, internet_plan_id}
+        const data = new FormData()
+        data.append('name', name)
+        data.append('email', email)
+        data.append('RG', RG)
+        data.append('CPF', CPF)
+        data.append('city', city)
+        data.append('uf', uf)
+        data.append('district', district)
+        data.append('street', street)
+        data.append('number', number)
+        data.append('box_number', box_number)
+        data.append('internet_plan_id', internet_plan_id)
+
+        images.forEach((image, index) => {
+            data.append('images', {
+                name: `image_${index}.jpg`,
+                type: 'image/jpg',
+                uri: image,
+            })
+
+        });
 
 
         try {
@@ -152,6 +198,25 @@ export default function Create_Clients() {
                                 ))}
                             </Picker> 
                         </View>
+
+                        <Text style={styles.formProperty}>FOTOS DOCUMENTOS:</Text>
+
+                        <View style={styles.uploadedImagesContainer}>
+                            {images.map(image => {
+                                return (
+                                    <Image
+                                        key={image}
+                                        source={{ uri: image }}
+                                        style={styles.uploadedImage}
+
+                                    />
+                                )
+                            })}
+                        </View>
+
+                        <TouchableOpacity style={styles.imagesInput} onPress={handleSelectImages}>
+                            <Feather name="plus" size={24} />
+                        </TouchableOpacity>
 
                         <Text style={styles.formProperty}>LOCALIZAÇÃO:</Text>
 
