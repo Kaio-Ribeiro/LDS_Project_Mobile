@@ -8,6 +8,7 @@ import Login from './pages/Login'
 import Salesman_Listing from './pages/Salesman_Listing'
 import Detail from './pages/Detail'
 import Detail_Clients from './pages/Detail_Clients'
+import Detail_Invoice from './pages/Detail_Invoice'
 import Detail_Plans from './pages/Detail_Plans'
 import Create_Salesman from './pages/Create_Salesman'
 import Update_Salesman from './pages/Update_Salesman'
@@ -31,6 +32,7 @@ export default function Routes() {
                 <AppStack.Screen name="Salesman_Listing" component={Salesman_Listing} />
                 <AppStack.Screen name="Detail" component={Detail} />
                 <AppStack.Screen name="Detail_Clients" component={Detail_Clients} />
+                <AppStack.Screen name="Detail_Invoice" component={Detail_Invoice} />
                 <AppStack.Screen name="Detail_Plans" component={Detail_Plans} />
                 <AppStack.Screen name="Create_Salesman" component={Create_Salesman} />
                 <AppStack.Screen name="Update_Salesman" component={Update_Salesman} />

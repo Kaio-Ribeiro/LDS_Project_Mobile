@@ -17,6 +17,11 @@ export default function Home_Client() {
     navigation.navigate('Detail_Plans')
   }
 
+  
+function navigateToDetailInvoice() {    
+  navigation.navigate('Detail_Invoice')
+}
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -38,6 +43,12 @@ export default function Home_Client() {
           <Text style={styles.actionText}>Dados do Plano</Text>
         </TouchableOpacity>
 
+        <TouchableOpacity 
+          style={styles.action}
+          onPress={navigateToDetailInvoice}
+        >
+          <Text style={styles.actionText}>Acessar Fatura</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
