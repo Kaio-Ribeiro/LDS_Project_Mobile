@@ -112,7 +112,7 @@ export default function Create_Clients() {
 
             alert("Cliente cadastrado com sucesso.")
             
-            navigation.navigate('Contract_Client')
+            navigation.navigate('Home_Salesman')
 
         } catch (err) {
             alert("Falha no cadastro, tente novamente.")

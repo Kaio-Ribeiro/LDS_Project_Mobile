@@ -12,6 +12,14 @@ export default function Detail_Plans() {
     const [isSelected, setSelection] = useState(false);
     const navigation = useNavigation()
 
+    async function handleConfirmTerms() {
+        const clientID = await AsyncStorage.getItem('userID');
+
+        if(isSelected === true) {
+            await api.put(`/confirmation/${clientID}`)
+        }
+    }
+
     function navigateBack() {
         navigation.goBack()
     }
@@ -59,7 +67,7 @@ export default function Detail_Plans() {
                 <View style={styles.actions}>
 
                     <TouchableOpacity style={styles.action} onPress={navigateHomeSalesman}>
-                        <Text style={styles.actionText}>Finalizar</Text>
+                        <Text style={styles.actionText} onPress={handleConfirmTerms}>Finalizar</Text>
                     </TouchableOpacity>
                 </View>    
             </View>

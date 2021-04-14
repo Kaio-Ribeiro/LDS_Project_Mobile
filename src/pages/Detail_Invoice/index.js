@@ -45,8 +45,6 @@ export default function Detail_Invoice() {
             </View>
 
             <View style={styles.salesman}>
-                <Text style={[styles.salesmanProperty, { marginTop: 0 }]}>Fatura:</Text>
-
                 <PDFReader
                     style={{width:Dimensions.get('window').width,height:Dimensions.get('window').height}}
                     source={{

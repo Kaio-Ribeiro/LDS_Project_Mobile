@@ -24,6 +24,7 @@ export default function Login() {
             const response = await api.post(picker, data)
 
             await AsyncStorage.setItem('userID', JSON.stringify(response.data));
+            console.log(response.data)
 
             if(picker === '/sessionAdmin') {
                 navigation.navigate('Home_Admin')
@@ -32,11 +33,19 @@ export default function Login() {
                 navigation.navigate('Home_Salesman')
 
             }else if(picker === '/sessionClient'){
-                navigation.navigate('Home_Client')
+                const conf = await api.get('/confirmation',  { headers: { Authorization: response.data } })
+
+                if(conf.data === true) {
+                    navigation.navigate('Contract_Client')
+
+                }else {
+                    navigation.navigate('Home_Client')
+                }
+                
             }
 
         } catch (err) {
-            alert("Erro no login, tente novamente")
+            alert(err)
         }
     }
 

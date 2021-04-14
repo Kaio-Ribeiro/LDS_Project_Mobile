@@ -20,7 +20,7 @@ export default StyleSheet.create({
         padding: 24,
         borderRadius: 8,
         backgroundColor: '#FFF',
-        marginBottom: 16,
+        marginBottom: 8,
         marginTop: 48,
     },
 
@@ -46,8 +46,8 @@ export default StyleSheet.create({
 
     title: {
         fontSize: 30,
-        marginBottom: 16,
-        marginTop: 32,
+        marginBottom: 8,
+        marginTop: 16,
         color: '#13131a',
         fontWeight: 'bold',
     },

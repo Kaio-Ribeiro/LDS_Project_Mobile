@@ -25,7 +25,7 @@ export default function Detail() {
     }
 
     async function handleDeleteSalesman() {
-        const adminID = await AsyncStorage.getItem('adminID');
+        const adminID = await AsyncStorage.getItem('userID');
 
         try {
             await api.delete(`salesman/${salesman.id}`, {
