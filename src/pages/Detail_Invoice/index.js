@@ -50,6 +50,7 @@ export default function Detail_Invoice() {
                     source={{
                         uri: 'https://camara.fgv.br/sites/camara.fgv.br/files/artigos/teste33_0_3.pdf',
                     }}
+                    useGoogleReader={true}
                 />
  
             </View>
